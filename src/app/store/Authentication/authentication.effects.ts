@@ -7,7 +7,7 @@ import { login, loginSuccess, loginFailure, logout, logoutSuccess, Register, Reg
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { AuthfakeauthenticationService } from '../../core/services/authfake.service';
-import { UserProfileService } from '../../core/services/user.service';
+import { UserService } from '../../core/services/user.service';
 @Injectable()
 export class AuthenticationEffects {
 
@@ -84,7 +84,7 @@ export class AuthenticationEffects {
     @Inject(Actions) private actions$: Actions,
     private AuthenticationService: AuthenticationService,
     private AuthfakeService: AuthfakeauthenticationService,
-    private userService: UserProfileService,
+    private userService: UserService,
     private router: Router) { }
 
 }

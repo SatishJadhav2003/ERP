@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { from, map } from 'rxjs';
-import { User } from '../../store/Authentication/auth.models';
+import { UserAuth } from '../../store/Authentication/auth.models';
 import { getFirebaseBackend } from '../../authUtils';
 
 
@@ -9,7 +9,7 @@ import { getFirebaseBackend } from '../../authUtils';
 
 export class AuthenticationService {
 
-    user!: User;
+    user!: UserAuth;
 
     constructor() {
     }
@@ -17,7 +17,7 @@ export class AuthenticationService {
     /**
      * Returns the current user
      */
-    public currentUser(): User {
+    public currentUser(): UserAuth {
         return getFirebaseBackend().getAuthenticatedUser();
     }
 

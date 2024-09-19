@@ -12,12 +12,14 @@ import { CommonModule } from '@angular/common';
 import { NGXPagination } from '../../../Component/pagination';
 import { RouterLink } from '@angular/router';
 import { AddUserComponent } from "../add-user/add-user.component";
+import { SearchPipe } from '../../../shared/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-users-list',
   standalone: true,
-  imports: [PageTitleComponent, NgxDatatableModule, LucideAngularModule, NGXPagination, MDModalModule, MnDropdownComponent, NgSelectModule, CommonModule, RouterLink, AddUserComponent],
+  imports: [PageTitleComponent, NgxDatatableModule, LucideAngularModule, NGXPagination, MDModalModule, MnDropdownComponent, NgSelectModule, CommonModule, RouterLink, AddUserComponent,FormsModule],
   templateUrl: './users-list.component.html',
   styles: ``,
   providers: [{ provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider(icons) }]
@@ -31,7 +33,7 @@ export class UsersListComponent {
   startIndex: number = 0;
   endIndex: any;
   alluserList: any
-
+  searchUser:string = '';
   private store = inject(Store)
 
   ngOnInit(): void {
@@ -50,7 +52,7 @@ export class UsersListComponent {
         this.totalItems = this.userList.length;
       });
 
-    }, 500)
+    }, 250)
   }
 
 
@@ -62,6 +64,7 @@ export class UsersListComponent {
     this.updatePagedOrders();
   }
 
+
   getEndIndex() {
     return Math.min(this.startIndex + this.itemsPerPage, this.totalItems)
   }
@@ -69,8 +72,17 @@ export class UsersListComponent {
   updatePagedOrders(): void {
     this.startIndex = (this.currentPage - 1) * this.itemsPerPage;
     this.endIndex = this.startIndex + this.itemsPerPage;
-    this.userList = this.alluserList.slice(this.startIndex, this.endIndex);
+    this.userList = this.userList.slice(this.startIndex, this.endIndex);
   }
+
+  // Search functionality
+  onSearchChange() {
+    const searchPipe = new SearchPipe();
+    this.userList = searchPipe.transform(this.alluserList, this.searchUser);
+  }
+
+
+
   columns = [
     { name: 'ID', prop: 'id' },
     { name: 'User ID', prop: 'userId' },

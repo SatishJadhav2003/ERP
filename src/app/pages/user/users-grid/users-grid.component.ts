@@ -1,7 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { fetchUserGridData } from '../../../store/User/user-action';
-import { selectUserGrid, selectUserLoading } from '../../../store/User/user-selector';
+import {  selectUserList, selectUserLoading } from '../../../store/User/user-selector';
 import { PageTitleComponent } from '../../../shared/page-title/page-title.component';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
 import { FlatpickrModule } from '../../../Component/flatpickr/flatpickr.module';
@@ -10,11 +9,14 @@ import { MDModalModule } from '../../../Component/modals';
 import { MnDropdownComponent } from '../../../Component/dropdown';
 import { NGXPagination } from '../../../Component/pagination';
 import { AddUserComponent } from "../add-user/add-user.component";
+import { fetchUserListData } from '../../../store/User/user-action';
+import { SearchPipe } from '../../../shared/search.pipe';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-users-grid',
   standalone: true,
-  imports: [PageTitleComponent, LucideAngularModule, NGXPagination, RouterModule, FlatpickrModule, MnDropdownComponent, MDModalModule, RouterLink, AddUserComponent],
+  imports: [PageTitleComponent, LucideAngularModule, NGXPagination, RouterModule, FlatpickrModule, MnDropdownComponent, MDModalModule, RouterLink, AddUserComponent,FormsModule],
   templateUrl: './users-grid.component.html',
   providers: [{ provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider(icons) }],
   styles: ``
@@ -28,25 +30,33 @@ export class UsersGridComponent {
   startIndex: number = 0;
   endIndex: any;
   allgriddata: any
+  searchUser:string = '';
   private store = inject(Store)
 
   ngOnInit(): void {
 
     // Fetch Data
     setTimeout(() => {
-      this.store.dispatch(fetchUserGridData());
+      this.store.dispatch(fetchUserListData());
       this.store.select(selectUserLoading).subscribe(data => {
         if (data == false) {
           document.getElementById('elmLoader')?.classList.add('d-none')
         }
       })
-      this.store.select(selectUserGrid).subscribe(data => {
+      this.store.select(selectUserList).subscribe(data => {
         this.griddata = data
         this.allgriddata = data
         this.totalItems = this.griddata.length;
       });
 
     }, 500)
+  }
+
+
+  // Search functionality
+  onSearchChange() {
+    const searchPipe = new SearchPipe();
+    this.griddata = searchPipe.transform(this.allgriddata, this.searchUser);
   }
 
   // Pagination

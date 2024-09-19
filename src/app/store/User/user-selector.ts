@@ -8,11 +8,6 @@ export const selectUserList = createSelector(
     (state: UserState) => state.UserList
 );
 
-export const selectUserGrid = createSelector(
-    selectDataState,
-    (state: UserState) => state.UserGrid
-);
-
 export const selectUserLoading = createSelector(
     selectDataState,
     (state: UserState) => state.loading

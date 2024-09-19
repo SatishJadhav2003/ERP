@@ -1,5 +1,5 @@
 import { Action, createReducer, on } from '@ngrx/store';
-import { fetchUserGridData, fetchUserGridFailure, fetchUserGridSuccess, fetchUserListData, fetchUserListFailure, fetchUserListSuccess } from './user-action';
+import {addUser, fetchUserListData, fetchUserListFailure, fetchUserListSuccess } from './user-action';
 
 export interface UserState {
     UserList: any[];
@@ -26,17 +26,10 @@ export const UserReducer = createReducer(
     on(fetchUserListFailure, (state, { error }) => {
         return { ...state, error, loading: false };
     }),
+    on(addUser,(state,action)=>{
+        return {...state,action,loading:false}
+    })
 
-    // UserGrid
-    on(fetchUserGridData, (state) => {
-        return { ...state, loading: true, error: null };
-    }),
-    on(fetchUserGridSuccess, (state, { UserGrid }) => {
-        return { ...state, UserGrid, loading: false };
-    }),
-    on(fetchUserGridFailure, (state, { error }) => {
-        return { ...state, error, loading: false };
-    }),
 );
 
 // Selector

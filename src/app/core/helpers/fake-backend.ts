@@ -3,7 +3,7 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 
-import { UserGridViewData, UserListViewData,  } from '../../data';
+// import {  UserListViewData,  } from '../../data';
 
 @Injectable()
 export class FakeBackendInterceptor implements HttpInterceptor {
@@ -125,23 +125,15 @@ export class FakeBackendInterceptor implements HttpInterceptor {
            
 
             // get User List
-            if (request.url.endsWith('/app/userlist') && request.method === 'GET') {
-                if (UserListViewData) {
-                    return of(new HttpResponse({ status: 200, body: UserListViewData }));
-                } else {
-                    return throwError({ status: 401, error: { message: 'No Data Found' } });
-                }
-            }
+            // if (request.url.endsWith('/app/userlist') && request.method === 'GET') {
+            //     if (UserListViewData) {
+            //         return of(new HttpResponse({ status: 200, body: UserListViewData }));
+            //     } else {
+            //         return throwError({ status: 401, error: { message: 'No Data Found' } });
+            //     }
+            // }
 
-            // get User Grid
-            if (request.url.endsWith('/app/usergrid') && request.method === 'GET') {
-                if (UserGridViewData) {
-                    return of(new HttpResponse({ status: 200, body: UserGridViewData }));
-                } else {
-                    return throwError({ status: 401, error: { message: 'No Data Found' } });
-                }
-            }
-
+            
 
             // pass through any requests not handled above
             return next.handle(request);

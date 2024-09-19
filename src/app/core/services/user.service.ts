@@ -1,22 +1,32 @@
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { User } from '../../store/Authentication/auth.models';
+import { UserAuth } from '../../store/Authentication/auth.models';
+import { User } from '../../shared/model/user.model';
+import { ApirequestService } from './apirequest.service';
+import { UserListModel } from '../../store/User/user-model';
+import { Observable } from 'rxjs';
 
 
 @Injectable({ providedIn: 'root' })
-export class UserProfileService {
+export class UserService {
+
+    apiRequest = inject(ApirequestService)
     constructor(private http: HttpClient) { }
     /***
      * Get All User
      */
-    getAll() {
-        return this.http.get<User[]>(`api/users`);
+    getAll():Observable<User[]> {
+        return this.apiRequest.get('/User')
+        // return this.http.get<UserListModel[]>(`api/users`);
     }
 
-    /***
-     * Facked User Register
-     */
-    register(user: User) {
+    register(user: UserAuth) {
         return this.http.post(`/users/register`, user);
+    }
+
+    addUser(data:User)
+    {
+        
+        this.apiRequest.post('',data)
     }
 }

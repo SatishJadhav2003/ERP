@@ -34,8 +34,6 @@ import { ComingSoonComponent } from './extrapages/coming-soon/coming-soon.compon
 import { MaintenanceComponent } from './extrapages/maintenance/maintenance.component';
 import { Error404Component } from './extrapages/error404/error404.component';
 import { OfflineComponent } from './extrapages/offline/offline.component';
-import { OnepageLandingComponent } from './landing/onepage-landing/onepage-landing.component';
-import { ProductLandingComponent } from './landing/product-landing/product-landing.component';
 import { AuthGuard } from './core/guards/auth.guard';
 import { LoginComponent } from './account/login/login.component';
 import { RegisterComponent } from './account/register/register.component';
@@ -80,10 +78,6 @@ export const routes: Routes = [
     { path: 'auth-create-password-boxed', component: CreatePassBoxedComponent },
     { path: 'auth-create-password-modern', component: CreatePassModernComponent },
 
-
-    // Landing Pages
-    { path: 'onepage-landing', component: OnepageLandingComponent },
-    { path: 'product-landing', component: ProductLandingComponent },
 
 
 

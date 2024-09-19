@@ -78,3 +78,4 @@ export const appConfig: ApplicationConfig = {
   )
   ]
 };
+

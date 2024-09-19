@@ -1,4 +1,4 @@
-export interface ListModel{
+export interface UserListModel{
     id: any,
     userId: string,
     name: string,
@@ -8,13 +8,3 @@ export interface ListModel{
     email: string,
     phoneNumber: string,
 }
-
-export interface GridModel{
-    id: any,
-    img: string,
-    name: string,
-    username: string,
-    address: string,
-    isActive: boolean,
-}
-
