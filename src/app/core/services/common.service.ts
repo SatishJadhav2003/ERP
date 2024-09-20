@@ -1,14 +1,13 @@
-import { inject, Injectable } from "@angular/core";
-import { ApirequestService } from "./apirequest.service";
-import { Observable } from "rxjs";
+import { inject, Injectable } from '@angular/core';
+import { ApirequestService } from './apirequest.service';
+import { Observable } from 'rxjs';
+import { Module } from '../../shared/model/module.model';
 
 @Injectable({ providedIn: 'root' })
 export class CommonService {
-apiRequest = inject(ApirequestService);
+  apiRequest = inject(ApirequestService);
 
-
-getTestingTypeList():Observable<any>
-{
-    return this.apiRequest.get('');
-}
+  getModuleList(): Observable<Module[]> {
+    return this.apiRequest.get('/Module');
+  }
 }

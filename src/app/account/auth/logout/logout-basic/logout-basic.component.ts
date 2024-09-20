@@ -4,6 +4,7 @@ import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lu
 import { AuthenticationService } from '../../../../core/services/auth.service';
 import { environment } from '../../../../../environments/environment';
 import { AuthfakeauthenticationService } from '../../../../core/services/authfake.service';
+import { companyName } from '../../../../app.config';
 
 @Component({
   selector: 'app-logout-basic',
@@ -14,7 +15,7 @@ import { AuthfakeauthenticationService } from '../../../../core/services/authfak
   providers:[{provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider(icons)}]
 })
 export class LogoutBasicComponent {
-
+  companyName:string = companyName;
   constructor( private authService: AuthenticationService,public router:Router, private authFackservice: AuthfakeauthenticationService){}
    /**
    * Logout the user
@@ -25,6 +26,6 @@ export class LogoutBasicComponent {
     } else {
       this.authFackservice.logout();
     }
-    this.router.navigate(['/account-login']);
+    this.router.navigate(['/login']);
   }
 }

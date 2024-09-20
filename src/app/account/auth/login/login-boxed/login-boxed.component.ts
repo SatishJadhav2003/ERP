@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
 import { CutomDropdownComponent } from '../../../../Component/customdropdown';
+import { appConfig, companyName } from '../../../../app.config';
 
 @Component({
   selector: 'app-login-boxed',
@@ -12,5 +13,5 @@ import { CutomDropdownComponent } from '../../../../Component/customdropdown';
   providers: [{ provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider(icons) }]
 })
 export class LoginBoxedComponent {
-
+companyName:string = companyName;
 }

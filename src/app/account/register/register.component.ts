@@ -3,12 +3,13 @@ import { FormsModule, ReactiveFormsModule, UntypedFormBuilder, UntypedFormGroup,
 import { Store } from '@ngrx/store';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
 import { Register } from '../../store/Authentication/authentication.actions';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [LucideAngularModule, ReactiveFormsModule, FormsModule],
+  imports: [LucideAngularModule, ReactiveFormsModule, FormsModule,RouterModule],
   templateUrl: './register.component.html',
   styles: ``,
   providers: [{ provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider(icons) }]

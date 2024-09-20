@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { UserAuth } from '../../store/Authentication/auth.models';
 import { User } from '../../shared/model/user.model';
 import { ApirequestService } from './apirequest.service';
-import { UserListModel } from '../../store/User/user-model';
 import { Observable } from 'rxjs';
 
 
@@ -24,9 +23,8 @@ export class UserService {
         return this.http.post(`/users/register`, user);
     }
 
-    addUser(data:User)
+    addUser(data:User):Observable<any>
     {
-        
-        this.apiRequest.post('',data)
+       return this.apiRequest.post('/User',data)
     }
 }

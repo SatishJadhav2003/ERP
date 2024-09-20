@@ -1,38 +1,37 @@
 
-    <div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
-        <form action="javascript:void(0);">
-            <div class="mb-3">
-                <label for="userId" class="inline-block mb-2 text-base font-medium">User ID</label>
-                <input type="text" id="userId" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" disabled value="#TW1500004" required>
-            </div>
-            <div class="mb-3">
-                <label for="userNameInput" class="inline-block mb-2 text-base font-medium">Name</label>
-                <input type="text" id="userNameInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter name" required>
-            </div>
-            <div class="mb-3">
-                <label for="emailInput" class="inline-block mb-2 text-base font-medium">Email</label>
-                <input type="email" id="emailInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter email" required>
-            </div>
-            <div class="mb-3">
-                <label for="phoneNumberInput" class="inline-block mb-2 text-base font-medium">Phone Number</label>
-                <input type="text" id="phoneNumberInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="12345 67890" required>
-            </div>
-            <div class="mb-3">
-                <label for="statusSelect" class="inline-block mb-2 text-base font-medium">Department</label>
-                <select class="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false name="statusSelect" id="statusSelect">
-                    <option value="">Select Department</option>
-                    <option value="Verified"></option>
-                    <option value="Waiting">Waiting</option>
-                    <option value="Rejected">Rejected</option>
-                </select>
-            </div>
-            <div class="mb-3">
-                <label for="locationInput" class="inline-block mb-2 text-base font-medium">Location</label>
-                <input type="text" id="locationInput" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Location" required>
-            </div>
-            <div class="flex justify-end gap-2 mt-4">
-               
-                <button type="submit" class="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Add User</button>
-            </div>
-        </form>
-    </div>
+<div class="max-h-[calc(theme('height.screen')_-_180px)] p-4 overflow-y-auto">
+    <form (ngSubmit)="onSubmit()" [formGroup]="userForm">
+        <div class="mb-3">
+            <label for="User_ID" class="inline-block mb-2 text-base font-medium">User ID</label>
+            <input type="text" id="User_ID" formControlName="User_ID" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200"  required>
+        </div>
+        <div class="mb-3">
+            <label for="User_Name" class="inline-block mb-2 text-base font-medium">Name</label>
+            <input type="text" id="User_Name" formControlName="User_Name" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter name" required>
+        </div>
+        <div class="mb-3">
+            <label for="Email" class="inline-block mb-2 text-base font-medium">Email</label>
+            <input type="email" id="Email" formControlName="Email" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Enter email" required>
+        </div>
+        <div class="mb-3">
+            <label for="Phone_Number" class="inline-block mb-2 text-base font-medium">Phone Number</label>
+            <input type="text" id="Phone_Number" formControlName="Phone_Number" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="12345 67890" required>
+        </div>
+        <div class="mb-3">
+            <label for="Department" class="inline-block mb-2 text-base font-medium">Module</label>
+            <select id="Department" formControlName="Module" class="form-input border-slate-300 focus:outline-none focus:border-custom-500" data-choices data-choices-search-false>
+               <option value="">Select Module</option>
+                    @for (item of moduleList; track $index) {
+                        <option [value]="item.Module_ID">{{item.Module_Name}}</option>
+                    }
+            </select>
+        </div>
+        <div class="mb-3">
+            <label for="Location" class="inline-block mb-2 text-base font-medium">Location</label>
+            <input type="text" id="Location" formControlName="Location" class="form-input border-slate-200 dark:border-zink-500 focus:outline-none focus:border-custom-500 disabled:bg-slate-100 dark:disabled:bg-zink-600 disabled:border-slate-300 dark:disabled:border-zink-500 dark:disabled:text-zink-200 disabled:text-slate-500 dark:text-zink-100 dark:bg-zink-700 dark:focus:border-custom-800 placeholder:text-slate-400 dark:placeholder:text-zink-200" placeholder="Location" required>
+        </div>
+        <div class="flex justify-end gap-2 mt-4">
+            <button type="submit" class="text-white transition-all duration-200 ease-linear btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20">Add User</button>
+        </div>
+    </form>
+</div>

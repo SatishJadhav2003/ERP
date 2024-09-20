@@ -14,6 +14,7 @@ import { RouterLink } from '@angular/router';
 import { AddUserComponent } from "../add-user/add-user.component";
 import { SearchPipe } from '../../../shared/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { User } from '../../../shared/model/user.model';
 
 
 @Component({
@@ -25,15 +26,17 @@ import { FormsModule } from '@angular/forms';
   providers: [{ provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider(icons) }]
 })
 export class UsersListComponent {
-  userList: any;
+  userList: User[]=[];
 
   currentPage: number = 1;
   itemsPerPage: number = 10;
   totalItems: number = 0;
   startIndex: number = 0;
   endIndex: any;
-  alluserList: any
+  alluserList: User[] = []
   searchUser:string = '';
+  addUser:boolean = false;
+  selectedForDelete:number = 0;
   private store = inject(Store)
 
   ngOnInit(): void {
@@ -85,20 +88,23 @@ export class UsersListComponent {
 
   columns = [
     { name: 'ID', prop: 'id' },
-    { name: 'User ID', prop: 'userId' },
-    { name: 'Name', prop: 'name' },
-    { name: 'Location', prop: 'location' },
-    { name: 'Email', prop: 'email' },
-    { name: 'Phone Number', prop: 'phoneNumber' },
-    // { name: 'Joining Date', prop: 'joiningDate' },
-    // { name: 'Status', prop: 'status' },
+    { name: 'User No', prop: 'User_No' },
+    { name: 'Name', prop: 'User_Name' },
+    { name: 'Location', prop: 'Location' },
+    { name: 'Email', prop: 'Email' },
+    { name: 'Phone Number', prop: 'Phone_Number' },
     { name: 'Action', prop: 'actions' }
   ]
 
 
   // 
-  onAddUser()
-  {
 
+  onSelectDelete(item:any)
+  {
+    console.log(item);
+    this.selectedForDelete = this.userList[item].User_ID;
+    console.log(this.selectedForDelete)
   }
+  deleteItem()
+  {}
 }

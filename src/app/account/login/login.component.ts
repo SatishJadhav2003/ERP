@@ -2,15 +2,16 @@ import { Component } from '@angular/core';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
 import { Store } from '@ngrx/store';
 import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { login } from '../../store/Authentication/authentication.actions';
 import { AuthenticationService } from '../../core/services/auth.service';
+import { companyName } from '../../app.config';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [LucideAngularModule, FormsModule, ReactiveFormsModule],
+  imports: [LucideAngularModule, FormsModule, ReactiveFormsModule,RouterModule],
   templateUrl: './login.component.html',
   styles: ``,
   providers: [{ provide: LUCIDE_ICONS, multi: true, useValue: new LucideIconProvider(icons) }]
@@ -26,6 +27,7 @@ export class LoginComponent {
   a: any = 10;
   b: any = 20;
   toast!: false;
+  companyName:string = companyName
 
   // set the current year
   year: number = new Date().getFullYear();
@@ -66,6 +68,8 @@ export class LoginComponent {
     const password = this.f['password'].value; // Get the password from the form
 
     // Login Api
+
+    
     this.store.dispatch(login({ email: email, password: password }));
   }
 

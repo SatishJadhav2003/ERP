@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "Tailwick": {
+    "ERP": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/tailwick",
+            "outputPath": "dist/ERP",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -94,10 +94,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "Tailwick:build:production"
+              "buildTarget": "ERP:build:production"
             },
             "development": {
-              "buildTarget": "Tailwick:build:development"
+              "buildTarget": "ERP:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -105,7 +105,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "Tailwick:build"
+            "buildTarget": "ERP:build"
           }
         },
         "test": {

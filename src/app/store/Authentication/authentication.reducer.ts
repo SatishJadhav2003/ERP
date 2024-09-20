@@ -1,10 +1,10 @@
 import { createReducer, on } from '@ngrx/store';
 import { Register, RegisterFailure, RegisterSuccess, login, loginFailure, loginSuccess, logout} from './authentication.actions';
-import { User } from './auth.models';
+import { UserAuth } from './auth.models';
 
 export interface AuthenticationState {
     isLoggedIn: boolean;
-    user: User | null;
+    user: UserAuth | null;
     error: string | null;
 }
 

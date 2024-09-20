@@ -20,10 +20,10 @@
     <div class="card">
         <div class="card-body">
             <div class="relative flex items-center justify-center size-16 mx-auto text-lg rounded-full bg-slate-100 dark:bg-zink-600">
-                @if(data.img){
-                <img src="{{data.img}}" alt="" class="size-16 rounded-full">
+                @if(data.Image){
+                <img src="{{data.Image}}" alt="" class="size-16 rounded-full">
                 }@else {
-                {{data.name.charAt(0)}}
+                {{data.User_Name.charAt(0)}}
                 }
                 @if(data.isActive){
                 <span class="absolute size-3 bg-green-400 border-2 border-white rounded-full dark:border-zink-700 bottom-1 ltr:right-1 rtl:left-1"></span>
@@ -32,9 +32,9 @@
                 }
             </div>
             <div class="mt-4 text-center">
-                <h5 class="mb-1 text-16"><a routerLink="/pages-account">{{data.name}}</a></h5>
-                <p class="mb-3 text-slate-500 dark:text-zink-200">{{data.designation}}</p>
-                <p class="text-slate-500 dark:text-zink-200">{{data.location}} - {{data.phoneNumber}}</p>
+                <h5 class="mb-1 text-16"><a routerLink="/account">{{data.User_Name}}</a></h5>
+                <p class="mb-3 text-slate-500 dark:text-zink-200">{{data.Designation}}</p>
+                <p class="text-slate-500 dark:text-zink-200">{{data.Location}} - {{data.Phone_Number}}</p>
             </div>
             <div class="flex gap-2 mt-5">
                 <a routerLink="/apps-chat" class="bg-white text-custom-500 btn border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:bg-zink-700 dark:hover:bg-custom-500 dark:ring-custom-400/20 dark:focus:bg-custom-500 grow"><lucide-angular name="messages-square" [class]="'inline-block size-4 ltr:mr-1 rtl:ml-1'"></lucide-angular> <span class="align-middle"> Send Message</span></a>
@@ -42,7 +42,7 @@
                     <button type="button" mndropdownToggle id="userGridDropdown12" data-bs-toggle="dropdown" class="dropdown-toggle flex items-center justify-center size-[37.5px] p-0 text-white btn bg-custom-500 border-custom-500 hover:text-white hover:bg-custom-600 hover:border-custom-600 focus:text-white focus:bg-custom-600 focus:border-custom-600 focus:ring focus:ring-custom-100 active:text-white active:bg-custom-600 active:border-custom-600 active:ring active:ring-custom-100 dark:ring-custom-400/20"><lucide-angular name="more-horizontal" class="size-4"></lucide-angular></button>
                     <ul mndropdownMenu class="absolute z-50 py-2 mt-1 ltr:text-left rtl:text-right list-none bg-white rounded-md shadow-md dropdown-menu min-w-[10rem] dark:bg-zink-600" aria-labelledby="userGridDropdown12">
                         <li>
-                            <a class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" routerLink="/pages-account"><lucide-angular name="eye" [class]="'inline-block size-3 ltr:mr-1 rtl:ml-1'"></lucide-angular> <span class="align-middle">Overview</span></a>
+                            <a class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" routerLink="/account"><lucide-angular name="eye" [class]="'inline-block size-3 ltr:mr-1 rtl:ml-1'"></lucide-angular> <span class="align-middle">Overview</span></a>
                         </li>
                         <li>
                             <a [appModalTrigger]="'addUserModal'" class="block px-4 py-1.5 text-base transition-all duration-200 ease-linear text-slate-600 dropdown-item hover:bg-slate-100 hover:text-slate-500 focus:bg-slate-100 focus:text-slate-500 dark:text-zink-100 dark:hover:bg-zink-500 dark:hover:text-zink-200 dark:focus:bg-zink-500 dark:focus:text-zink-200" href="javascript:void(0);"><lucide-angular name="file-edit" [class]="'inline-block size-3 ltr:mr-1 rtl:ml-1'"></lucide-angular> <span class="align-middle">Edit</span></a>

@@ -1,13 +1,32 @@
-import { ApplicationConfig, importProvidersFrom, isDevMode } from '@angular/core';
-import { InMemoryScrollingFeature, InMemoryScrollingOptions, provideRouter, withInMemoryScrolling } from '@angular/router';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  isDevMode,
+} from '@angular/core';
+import {
+  InMemoryScrollingFeature,
+  InMemoryScrollingOptions,
+  provideRouter,
+  withInMemoryScrolling,
+} from '@angular/router';
 
 import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideStore } from '@ngrx/store';
 import { rootReducer } from './store';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule, provideHttpClient, withFetch } from '@angular/common/http';
-import { TranslateLoader, TranslateModule, TranslateService } from '@ngx-translate/core';
+import {
+  HTTP_INTERCEPTORS,
+  HttpClient,
+  HttpClientModule,
+  provideHttpClient,
+  withFetch,
+} from '@angular/common/http';
+import {
+  TranslateLoader,
+  TranslateModule,
+  TranslateService,
+} from '@ngx-translate/core';
 import { LucideAngularModule, icons } from 'lucide-angular';
 import { provideEffects } from '@ngrx/effects';
 import { EcommerceEffects } from './store/Ecommerce/ecommerce-effects';
@@ -43,39 +62,46 @@ const scrollConfig: InMemoryScrollingOptions = {
   anchorScrolling: 'enabled',
 };
 
-const inMemoryScrollingFeature: InMemoryScrollingFeature = withInMemoryScrolling(scrollConfig);
-export const appConfig: ApplicationConfig = {
-  providers: [provideRouter(routes, inMemoryScrollingFeature),
-  { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
-  { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
-  { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
-  provideClientHydration(),
-  provideStore(rootReducer),
-  provideEffects(EcommerceEffects, UserEffects,  AuthenticationEffects),
-  provideToastr({
-    timeOut: 10000,
-    positionClass: 'toast-bottom-right',
-    preventDuplicates: false,
-  }),
-  provideStoreDevtools(),
-  provideEnvironmentNgxMask(),
-  provideHttpClient(withFetch()),
-    TranslateService,
-  importProvidersFrom(
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    HttpClientModule,
-    BrowserAnimationsModule,
-    LucideAngularModule.pick(icons),
-    TranslateModule.forRoot({
-      defaultLanguage: 'en',
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    })
-  )
-  ]
-};
+export const companyName: string = 'ERP';
 
+const inMemoryScrollingFeature: InMemoryScrollingFeature =
+  withInMemoryScrolling(scrollConfig);
+export const appConfig: ApplicationConfig = {
+  providers: [
+    provideRouter(routes, inMemoryScrollingFeature),
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: FakeBackendInterceptor,
+      multi: true,
+    },
+    provideClientHydration(),
+    provideStore(rootReducer),
+    provideEffects(EcommerceEffects, UserEffects, AuthenticationEffects),
+    provideToastr({
+      timeOut: 10000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: false,
+    }),
+    provideStoreDevtools(),
+    provideEnvironmentNgxMask(),
+    provideHttpClient(withFetch()),
+    TranslateService,
+    importProvidersFrom(
+      AngularFireModule.initializeApp(environment.firebaseConfig),
+      AngularFireAuthModule,
+      HttpClientModule,
+      BrowserAnimationsModule,
+      LucideAngularModule.pick(icons),
+      TranslateModule.forRoot({
+        defaultLanguage: 'en',
+        loader: {
+          provide: TranslateLoader,
+          useFactory: createTranslateLoader,
+          deps: [HttpClient],
+        },
+      })
+    ),
+  ],
+};

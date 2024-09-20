@@ -1,10 +1,12 @@
 export interface User {
-    id: any;
-    userId: string;
-    name: string;
-    img: string;
-    designation: string;
-    location: string;
-    email: string;
-    phoneNumber: string;
+    User_ID: number;
+    User_No: string;
+    User_Name: string;
+    Image: string;
+    Designation: string;
+    Module_IDs: string;
+    Location: string;
+    Email: string;
+    Phone_Number: number;
+    
 }

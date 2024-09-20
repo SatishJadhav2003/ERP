@@ -14,8 +14,8 @@ export const PAGE_ROUTES: Route[] = [
     {path:'',redirectTo:'users-list',pathMatch:'full'},
     { path: 'users-list', component: UserComponent },
     // extrapages
-    { path: 'pages-account', component: AccountComponent },
-    { path: 'pages-account-settings', component: AccountSettingsComponent },
+    { path: 'account', component: AccountComponent },
+    { path: 'account-settings', component: AccountSettingsComponent },
     { path: 'pages-pricing', component: PricingComponent },
     { path: 'pages-contact-us', component: ContactUsComponent },
     { path: 'pages-faqs', component: FaqsComponent },

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
 import { CutomDropdownComponent } from '../../../../Component/customdropdown';
+import { companyName } from '../../../../app.config';
 
 
 @Component({
@@ -15,5 +16,5 @@ import { CutomDropdownComponent } from '../../../../Component/customdropdown';
 export class LoginModernComponent {
 
   year = (new Date().getFullYear())
-
+  companyName:string = companyName
 }

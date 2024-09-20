@@ -42,8 +42,8 @@ export const routes: Routes = [
     { path: '', component: LayoutComponent, loadChildren: () => import('./pages/pages.route').then(mod => mod.PAGE_ROUTES), canActivate: [AuthGuard] },
 
     // Auth
-    { path: 'account-login', component: LoginComponent },
-    { path: 'account-register', component: RegisterComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'register', component: RegisterComponent },
     { path: 'auth-login-basic', component: LoginBasicComponent },
     { path: 'auth-login-cover', component: LoginCoverComponent },
     { path: 'auth-login-boxed', component: LoginBoxedComponent },
