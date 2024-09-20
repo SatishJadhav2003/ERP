@@ -1,11 +1,10 @@
 import { Route } from "@angular/router";
-import { UsersGridComponent } from "./user/users-grid/users-grid.component";
 import { AccountComponent } from "./extrapages/account/account.component";
 import { AccountSettingsComponent } from "./extrapages/account-settings/account-settings.component";
 import { PricingComponent } from "./extrapages/pricing/pricing.component";
 import { ContactUsComponent } from "./extrapages/contact-us/contact-us.component";
 import { FaqsComponent } from "./extrapages/faqs/faqs.component";
-import { UserComponent } from "./user/user.component";
+import { UserComponent } from "../User Management/user/user.component";
 
 
 
