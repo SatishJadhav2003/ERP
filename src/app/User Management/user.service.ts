@@ -1,8 +1,8 @@
 import { inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { UserAuth } from '../../store/Authentication/auth.models';
-import { User } from '../../shared/model/user.model';
-import { ApirequestService } from './apirequest.service';
+import { UserAuth } from '../store/Authentication/auth.models';
+import { User } from '../shared/model/user.model';
+import { ApirequestService } from '../core/services/apirequest.service';
 import { Observable } from 'rxjs';
 
 
@@ -19,9 +19,7 @@ export class UserService {
         // return this.http.get<UserListModel[]>(`api/users`);
     }
 
-    register(user: UserAuth) {
-        return this.http.post(`/users/register`, user);
-    }
+    
 
     addUser(data:User):Observable<any>
     {

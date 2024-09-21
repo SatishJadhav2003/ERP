@@ -38,14 +38,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Auth
 import { initFirebaseBackend } from './authUtils';
 
-import { JwtInterceptor } from './core/helpers/jwt.interceptor';
-import { ErrorInterceptor } from './core/helpers/error.interceptor';
-import { FakeBackendInterceptor } from './core/helpers/fake-backend';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { environment } from '../environments/environment.prod';
 import { AuthenticationEffects } from './store/Authentication/authentication.effects';
 import { provideToastr } from 'ngx-toastr';
+import { FakeBackendInterceptor } from './Authentication/helpers/fake-backend';
+import { ErrorInterceptor } from './Authentication/helpers/error.interceptor';
+import { JwtInterceptor } from './Authentication/helpers/jwt.interceptor';
 
 export function createTranslateLoader(http: HttpClient): any {
   return new TranslateHttpLoader(http, 'assets/i18n/');

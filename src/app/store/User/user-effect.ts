@@ -5,7 +5,7 @@ import { catchError, map, mergeMap, tap } from 'rxjs/operators';
 
 import { Actions, createEffect, ofType } from "@ngrx/effects";
 
-import { UserService } from "../../core/services/user.service";
+import { UserService } from "../../User Management/user.service";
 import {  fetchUserListData, fetchUserListFailure, fetchUserListSuccess } from "./user-action";
 
 

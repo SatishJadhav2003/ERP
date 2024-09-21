@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Router, RouterModule } from '@angular/router';
 import { LUCIDE_ICONS, LucideAngularModule, LucideIconProvider, icons } from 'lucide-angular';
-import { AuthenticationService } from '../../../../core/services/auth.service';
-import { environment } from '../../../../../environments/environment';
-import { AuthfakeauthenticationService } from '../../../../core/services/authfake.service';
-import { companyName } from '../../../../app.config';
+import { AuthenticationService } from '../../services/auth.service';
+import { companyName } from '../../../app.config';
+import { environment } from '../../../../environments/environment';
+import { AuthfakeauthenticationService } from '../../services/authfake.service';
 
 @Component({
   selector: 'app-logout-basic',

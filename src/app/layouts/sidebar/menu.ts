@@ -49,12 +49,12 @@ export const MENU: MenuItem[] = [
         label: 'users',
         icon: 'user',
         parentId: 2,
-        link: '/users-list',
+        link: 'user/users-list',
         subItems: [
             {
                 id: 2.49,
                 label: 'Manage User',
-                link: '/users-list',
+                link: 'user/users-list',
                 parentId: 2.48,
             },
         ]

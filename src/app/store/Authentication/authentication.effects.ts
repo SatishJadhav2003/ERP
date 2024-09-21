@@ -7,33 +7,33 @@ import { login, loginSuccess, loginFailure, logout, logoutSuccess, Register, Reg
 import { Router } from '@angular/router';
 import { environment } from '../../../environments/environment';
 import { AuthfakeauthenticationService } from '../../core/services/authfake.service';
-import { UserService } from '../../core/services/user.service';
+import { UserService } from '../../User Management/user.service';
 @Injectable()
 export class AuthenticationEffects {
 
-  Register$ = createEffect(() =>
-    this.actions$.pipe(
-      ofType(Register),
-      exhaustMap(({ email, username, password }) => {
-        if (environment.defaultauth === 'fakebackend') {
-          return this.userService.register({ email, username, password }).pipe(
-            map((user) => {
-              this.router.navigate(['/auth/login']);
-              return RegisterSuccess({ user })
-            }),
-            catchError((error) => of(RegisterFailure({ error })))
-          );
-        } else {
-          return this.AuthenticationService.register( email, username, password).pipe(
-            map((user) => {
-              this.router.navigate(['/auth/login']);
-              return RegisterSuccess({ user })
-            })
-          )
-        }
-      })
-    )
-  );
+  // Register$ = createEffect(() =>
+    // this.actions$.pipe(
+    //   ofType(Register),
+    //   exhaustMap(({ email, username, password }) => {
+    //     if (environment.defaultauth === 'fakebackend') {
+    //       return this.userService.register({ email, username, password }).pipe(
+    //         map((user) => {
+    //           this.router.navigate(['/auth/login']);
+    //           return RegisterSuccess({ user })
+    //         }),
+    //         catchError((error) => of(RegisterFailure({ error })))
+    //       );
+    //     } else {
+    //       return this.AuthenticationService.register( email, username, password).pipe(
+    //         map((user) => {
+    //           this.router.navigate(['/auth/login']);
+    //           return RegisterSuccess({ user })
+    //         })
+    //       )
+    //     }
+    //   })
+    // )
+  // );
 
 
 
